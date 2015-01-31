@@ -32,7 +32,7 @@ Before you can use ROS, you will need to initialize rosdep. rosdep enables you t
 
 It's convenient if the ROS environment variables are automatically added to your bash session every time a new shell is launched:
 
-    echo "source /opt/ros/indigo/setup.bash" >> ~/.zshrc
+    echo "source /opt/ros/indigo/setup.zsh" >> ~/.zshrc
     source ~/.zshrc
 
 If you have more than one ROS distribution installed, ~/.bashrc must only source the setup.bash for the version you are currently using.

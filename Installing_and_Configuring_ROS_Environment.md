@@ -48,3 +48,29 @@ rosinstall is a frequently used command-line tool in ROS that is distributed sep
 To install this tool on Ubuntu, run:
 
     sudo apt-get install python-rosinstall
+
+# 2. Create a ROS Workspace
+
+> These instructions are for ROS Groovy and later. For ROS Fuerte and earlier, select rosbuild. 
+
+Let's create a catkin workspace:
+
+    $ mkdir -p ~/catkin_ws/src
+    $ cd ~/catkin_ws/src
+    $ catkin_init_workspace
+
+Even though the workspace is empty (there are no packages in the 'src' folder, just a single CMakeLists.txt link) you can still "build" the workspace:
+
+    $ cd ~/catkin_ws/
+    $ catkin_make
+
+The catkin_make command is a convenience tool for working with catkin workspaces. If you look in your current directory you should now have a 'build' and 'devel' folder. Inside the 'devel' folder you can see that there are now several setup.*sh files. Sourcing any of these files will overlay this workspace on top of your environment. To understand more about this see the general catkin documentation: catkin. Before continuing source your new setup.*sh file:
+
+    $ source devel/setup.zsh
+or add to ~/.zshrc
+    source ~/catkin_ws/devel/setup.zsh
+    
+To make sure your workspace is properly overlayed by the setup script, make sure ROS_PACKAGE_PATH environment variable includes the directory you're in.
+
+    $ echo $ROS_PACKAGE_PATH
+    /home/youruser/catkin_ws/src:/opt/ros/indigo/share:/opt/ros/indigo/stacks
